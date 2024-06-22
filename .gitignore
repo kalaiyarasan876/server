@@ -10,3 +10,23 @@ node_modules/
 # Ignore compiled files
 *.o
 *.out
+
+                           
+# Logs
+*.log
+
+# Node modules
+node_modules/
+
+# Build directory
+dist/
+
+# Environment variables
+.env
+
+# Editor settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
