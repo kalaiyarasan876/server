@@ -5,6 +5,9 @@ const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+// const mysql = require('mysql2');
+const url = require('url');
+
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -12,12 +15,31 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(bodyParser.json());
 
+// const db = mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_NAME,
+//     port: process.env.DB_PORT,
+// });
+
+// const db = mysql.createConnection({
+//     connectionString: process.env.DATABASE_URL,
+//     port : PORT
+// });
+
+
+const dbUrl = process.env.DATABASE_URL;
+const dbParams = url.parse(dbUrl);
+const [root, admin123] = dbParams.auth.split(':');
+
+
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
+    host: dbParams.hostname,
+    user: root,
+    password: admin123,
+    database: dbParams.pathname.slice(1), // Removes the leading '/'
+    port: dbParams.port
 });
 
 
