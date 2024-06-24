@@ -5,8 +5,6 @@ const mysql = require("mysql2");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-// const mysql = require('mysql2');
-const url = require("url");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
