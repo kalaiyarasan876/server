@@ -71,7 +71,7 @@ app.post('/login', (req, res) => {
 
     const query = `SELECT * FROM users WHERE email = ?`;
     db.execute(query, [email], async (err, result) => {
-        if (err) throw err;
+        // if (err) throw err;
         if (result.length === 0) {
             return res.status(400).send({ msg: 'Invalid email or password!' });
         }
