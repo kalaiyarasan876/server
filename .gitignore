@@ -1,32 +1,5 @@
-.env
+node_modules
 
-# Ignore node_modules folder
-node_modules/
+functions
 
-# Ignore log files
-*.log
-*.env
-
-# Ignore compiled files
-*.o
-*.out
-
-                           
-# Logs
-*.log
-
-# Node modules
-node_modules/
-
-# Build directory
-dist/
-
-# Environment variables
-.env
-
-# Editor settings
-.vscode/
-
-# OS generated files
-.DS_Store
-Thumbs.db
+env
